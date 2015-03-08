@@ -20,7 +20,7 @@
     NSMutableArray *exArray = [NSMutableArray array];
     
     // 初期の開閉状態を保存
-    [exArray insertObject:[NSNumber numberWithBool:YES] atIndex:0];
+    [exArray insertObject:[NSNumber numberWithBool:NO] atIndex:0];
     [exArray insertObject:[NSNumber numberWithBool:NO] atIndex:1];
     
     // 開閉の初期状態を格納

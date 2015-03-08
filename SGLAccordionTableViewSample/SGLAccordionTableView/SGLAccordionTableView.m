@@ -19,6 +19,7 @@
     if (self = [super initWithCoder:aDecoder]) {
         self.delegate = self;
         self.dataSource = self;
+        _sectionExpandedNumberWithBoolArray = [NSMutableArray array];
     }
     return self;
 }
@@ -107,8 +108,26 @@
 // テーブルの行の数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    // sectionExpandedNumberWithBoolArrayの設定内容確認
+    if (_sectionExpandedNumberWithBoolArray == nil) {
+        _sectionExpandedNumberWithBoolArray = [NSMutableArray array];
+    }
+    
+     // 開閉状態の初期設定
+    if (section > _sectionExpandedNumberWithBoolArray.count) {
+        NSInteger arrayCount = _sectionExpandedNumberWithBoolArray.count;
+        for(NSInteger i = arrayCount; i <= section; i++) {
+            [_sectionExpandedNumberWithBoolArray insertObject:[NSNumber numberWithBool:YES] atIndex:i];
+        }
+     }
+    
     // Number型で保存されたboolを変換
     NSNumber *obj = _sectionExpandedNumberWithBoolArray[section];
+    
+    // NSNumber型でない場合開帳状態として登録
+    if (![obj isKindOfClass:[NSNumber class]]) {
+        [_sectionExpandedNumberWithBoolArray replaceObjectAtIndex:section withObject:[NSNumber numberWithBool:YES]];
+    }
     
     if (obj != nil) {
         BOOL isExpanded = [obj boolValue];
