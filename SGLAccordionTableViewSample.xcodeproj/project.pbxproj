@@ -1,0 +1,429 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BF86B85F1AAC6931001C4037 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF86B85E1AAC6931001C4037 /* main.m */; };
+		BF86B8621AAC6931001C4037 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF86B8611AAC6931001C4037 /* AppDelegate.m */; };
+		BF86B8651AAC6931001C4037 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF86B8641AAC6931001C4037 /* ViewController.m */; };
+		BF86B8681AAC6931001C4037 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF86B8661AAC6931001C4037 /* Main.storyboard */; };
+		BF86B86A1AAC6931001C4037 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF86B8691AAC6931001C4037 /* Images.xcassets */; };
+		BF86B86D1AAC6931001C4037 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF86B86B1AAC6931001C4037 /* LaunchScreen.xib */; };
+		BF86B8791AAC6931001C4037 /* SGLAccordionTableViewSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF86B8781AAC6931001C4037 /* SGLAccordionTableViewSampleTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BF86B8731AAC6931001C4037 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF86B8511AAC6931001C4037 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF86B8581AAC6931001C4037;
+			remoteInfo = SGLAccordionTableViewSample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BF86B8591AAC6931001C4037 /* SGLAccordionTableViewSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SGLAccordionTableViewSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF86B85D1AAC6931001C4037 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF86B85E1AAC6931001C4037 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BF86B8601AAC6931001C4037 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BF86B8611AAC6931001C4037 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BF86B8631AAC6931001C4037 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		BF86B8641AAC6931001C4037 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		BF86B8671AAC6931001C4037 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BF86B8691AAC6931001C4037 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		BF86B86C1AAC6931001C4037 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		BF86B8721AAC6931001C4037 /* SGLAccordionTableViewSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SGLAccordionTableViewSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF86B8771AAC6931001C4037 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF86B8781AAC6931001C4037 /* SGLAccordionTableViewSampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SGLAccordionTableViewSampleTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BF86B8561AAC6931001C4037 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF86B86F1AAC6931001C4037 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BF86B8501AAC6931001C4037 = {
+			isa = PBXGroup;
+			children = (
+				BF86B85B1AAC6931001C4037 /* SGLAccordionTableViewSample */,
+				BF86B8751AAC6931001C4037 /* SGLAccordionTableViewSampleTests */,
+				BF86B85A1AAC6931001C4037 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BF86B85A1AAC6931001C4037 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BF86B8591AAC6931001C4037 /* SGLAccordionTableViewSample.app */,
+				BF86B8721AAC6931001C4037 /* SGLAccordionTableViewSampleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BF86B85B1AAC6931001C4037 /* SGLAccordionTableViewSample */ = {
+			isa = PBXGroup;
+			children = (
+				BF86B8601AAC6931001C4037 /* AppDelegate.h */,
+				BF86B8611AAC6931001C4037 /* AppDelegate.m */,
+				BF86B8631AAC6931001C4037 /* ViewController.h */,
+				BF86B8641AAC6931001C4037 /* ViewController.m */,
+				BF86B8661AAC6931001C4037 /* Main.storyboard */,
+				BF86B8691AAC6931001C4037 /* Images.xcassets */,
+				BF86B86B1AAC6931001C4037 /* LaunchScreen.xib */,
+				BF86B85C1AAC6931001C4037 /* Supporting Files */,
+			);
+			path = SGLAccordionTableViewSample;
+			sourceTree = "<group>";
+		};
+		BF86B85C1AAC6931001C4037 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BF86B85D1AAC6931001C4037 /* Info.plist */,
+				BF86B85E1AAC6931001C4037 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BF86B8751AAC6931001C4037 /* SGLAccordionTableViewSampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				BF86B8781AAC6931001C4037 /* SGLAccordionTableViewSampleTests.m */,
+				BF86B8761AAC6931001C4037 /* Supporting Files */,
+			);
+			path = SGLAccordionTableViewSampleTests;
+			sourceTree = "<group>";
+		};
+		BF86B8761AAC6931001C4037 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BF86B8771AAC6931001C4037 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BF86B8581AAC6931001C4037 /* SGLAccordionTableViewSample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF86B87C1AAC6931001C4037 /* Build configuration list for PBXNativeTarget "SGLAccordionTableViewSample" */;
+			buildPhases = (
+				BF86B8551AAC6931001C4037 /* Sources */,
+				BF86B8561AAC6931001C4037 /* Frameworks */,
+				BF86B8571AAC6931001C4037 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SGLAccordionTableViewSample;
+			productName = SGLAccordionTableViewSample;
+			productReference = BF86B8591AAC6931001C4037 /* SGLAccordionTableViewSample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BF86B8711AAC6931001C4037 /* SGLAccordionTableViewSampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF86B87F1AAC6931001C4037 /* Build configuration list for PBXNativeTarget "SGLAccordionTableViewSampleTests" */;
+			buildPhases = (
+				BF86B86E1AAC6931001C4037 /* Sources */,
+				BF86B86F1AAC6931001C4037 /* Frameworks */,
+				BF86B8701AAC6931001C4037 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF86B8741AAC6931001C4037 /* PBXTargetDependency */,
+			);
+			name = SGLAccordionTableViewSampleTests;
+			productName = SGLAccordionTableViewSampleTests;
+			productReference = BF86B8721AAC6931001C4037 /* SGLAccordionTableViewSampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BF86B8511AAC6931001C4037 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Jun Takahashi";
+				TargetAttributes = {
+					BF86B8581AAC6931001C4037 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					BF86B8711AAC6931001C4037 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = BF86B8581AAC6931001C4037;
+					};
+				};
+			};
+			buildConfigurationList = BF86B8541AAC6931001C4037 /* Build configuration list for PBXProject "SGLAccordionTableViewSample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BF86B8501AAC6931001C4037;
+			productRefGroup = BF86B85A1AAC6931001C4037 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BF86B8581AAC6931001C4037 /* SGLAccordionTableViewSample */,
+				BF86B8711AAC6931001C4037 /* SGLAccordionTableViewSampleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BF86B8571AAC6931001C4037 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF86B8681AAC6931001C4037 /* Main.storyboard in Resources */,
+				BF86B86D1AAC6931001C4037 /* LaunchScreen.xib in Resources */,
+				BF86B86A1AAC6931001C4037 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF86B8701AAC6931001C4037 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BF86B8551AAC6931001C4037 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF86B8651AAC6931001C4037 /* ViewController.m in Sources */,
+				BF86B8621AAC6931001C4037 /* AppDelegate.m in Sources */,
+				BF86B85F1AAC6931001C4037 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF86B86E1AAC6931001C4037 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF86B8791AAC6931001C4037 /* SGLAccordionTableViewSampleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BF86B8741AAC6931001C4037 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF86B8581AAC6931001C4037 /* SGLAccordionTableViewSample */;
+			targetProxy = BF86B8731AAC6931001C4037 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BF86B8661AAC6931001C4037 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF86B8671AAC6931001C4037 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BF86B86B1AAC6931001C4037 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF86B86C1AAC6931001C4037 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BF86B87A1AAC6931001C4037 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BF86B87B1AAC6931001C4037 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BF86B87D1AAC6931001C4037 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SGLAccordionTableViewSample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BF86B87E1AAC6931001C4037 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SGLAccordionTableViewSample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		BF86B8801AAC6931001C4037 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SGLAccordionTableViewSampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SGLAccordionTableViewSample.app/SGLAccordionTableViewSample";
+			};
+			name = Debug;
+		};
+		BF86B8811AAC6931001C4037 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SGLAccordionTableViewSampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SGLAccordionTableViewSample.app/SGLAccordionTableViewSample";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BF86B8541AAC6931001C4037 /* Build configuration list for PBXProject "SGLAccordionTableViewSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF86B87A1AAC6931001C4037 /* Debug */,
+				BF86B87B1AAC6931001C4037 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF86B87C1AAC6931001C4037 /* Build configuration list for PBXNativeTarget "SGLAccordionTableViewSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF86B87D1AAC6931001C4037 /* Debug */,
+				BF86B87E1AAC6931001C4037 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BF86B87F1AAC6931001C4037 /* Build configuration list for PBXNativeTarget "SGLAccordionTableViewSampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF86B8801AAC6931001C4037 /* Debug */,
+				BF86B8811AAC6931001C4037 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BF86B8511AAC6931001C4037 /* Project object */;
+}
