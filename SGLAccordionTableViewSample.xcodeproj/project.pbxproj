@@ -14,6 +14,7 @@
 		BF86B86A1AAC6931001C4037 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF86B8691AAC6931001C4037 /* Images.xcassets */; };
 		BF86B86D1AAC6931001C4037 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF86B86B1AAC6931001C4037 /* LaunchScreen.xib */; };
 		BF86B8791AAC6931001C4037 /* SGLAccordionTableViewSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF86B8781AAC6931001C4037 /* SGLAccordionTableViewSampleTests.m */; };
+		BF86B8851AAC6A12001C4037 /* SGLAccordionTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF86B8841AAC6A12001C4037 /* SGLAccordionTableView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		BF86B8721AAC6931001C4037 /* SGLAccordionTableViewSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SGLAccordionTableViewSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF86B8771AAC6931001C4037 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF86B8781AAC6931001C4037 /* SGLAccordionTableViewSampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SGLAccordionTableViewSampleTests.m; sourceTree = "<group>"; };
+		BF86B8831AAC6A12001C4037 /* SGLAccordionTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGLAccordionTableView.h; sourceTree = "<group>"; };
+		BF86B8841AAC6A12001C4037 /* SGLAccordionTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGLAccordionTableView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +88,7 @@
 				BF86B8611AAC6931001C4037 /* AppDelegate.m */,
 				BF86B8631AAC6931001C4037 /* ViewController.h */,
 				BF86B8641AAC6931001C4037 /* ViewController.m */,
+				BF86B8821AAC6A12001C4037 /* SGLAccordionTableView */,
 				BF86B8661AAC6931001C4037 /* Main.storyboard */,
 				BF86B8691AAC6931001C4037 /* Images.xcassets */,
 				BF86B86B1AAC6931001C4037 /* LaunchScreen.xib */,
@@ -117,6 +121,15 @@
 				BF86B8771AAC6931001C4037 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BF86B8821AAC6A12001C4037 /* SGLAccordionTableView */ = {
+			isa = PBXGroup;
+			children = (
+				BF86B8831AAC6A12001C4037 /* SGLAccordionTableView.h */,
+				BF86B8841AAC6A12001C4037 /* SGLAccordionTableView.m */,
+			);
+			path = SGLAccordionTableView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF86B8651AAC6931001C4037 /* ViewController.m in Sources */,
+				BF86B8851AAC6A12001C4037 /* SGLAccordionTableView.m in Sources */,
 				BF86B8621AAC6931001C4037 /* AppDelegate.m in Sources */,
 				BF86B85F1AAC6931001C4037 /* main.m in Sources */,
 			);

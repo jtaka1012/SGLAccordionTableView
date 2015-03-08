@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SGLAccordionTableView.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<SGLAccordionTableViewDelegate,SGLAccordionTableViewDataSource>
 
+
+@property (weak, nonatomic) IBOutlet SGLAccordionTableView *tbl_sample;
 
 @end
 
