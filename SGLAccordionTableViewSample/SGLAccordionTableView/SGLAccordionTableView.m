@@ -14,6 +14,15 @@
 
 #define headerBasedNo 50000
 
+// delegate,dataSourceの設定
+- (id)initWithCoder:(NSCoder *)aDecoder{
+    if (self = [super initWithCoder:aDecoder]) {
+        self.delegate = self;
+        self.dataSource = self;
+    }
+    return self;
+}
+
 // テーブルのセクションの数
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -205,7 +214,6 @@
     
 }
 
-
 // 縮小アニメーション
 - (void)collapseSection:(NSInteger)section rowCount:(NSInteger)count{
     NSMutableArray *indexPaths = [NSMutableArray new];
@@ -227,7 +235,5 @@
     [self insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
     [self scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section] atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
-
-
 
 @end

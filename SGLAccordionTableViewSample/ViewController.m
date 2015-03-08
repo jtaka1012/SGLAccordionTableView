@@ -27,8 +27,6 @@
     _tbl_sample.sectionExpandedNumberWithBoolArray = exArray;
     
     // delegate設定
-    _tbl_sample.delegate = _tbl_sample;
-    _tbl_sample.dataSource = _tbl_sample;
     _tbl_sample.tableDelegate = self;
     _tbl_sample.tableDataSource = self;
     
