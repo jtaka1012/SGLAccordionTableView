@@ -114,9 +114,10 @@
     }
     
      // 開閉状態の初期設定
-    if (section > _sectionExpandedNumberWithBoolArray.count) {
-        NSInteger arrayCount = _sectionExpandedNumberWithBoolArray.count;
-        for(NSInteger i = arrayCount; i <= section; i++) {
+    NSInteger maxSection = [self numberOfSectionsInTableView:self];
+    if (maxSection > _sectionExpandedNumberWithBoolArray.count) {
+        NSInteger insertCount = _sectionExpandedNumberWithBoolArray.count - 1;
+        for(NSInteger i = insertCount; i <= maxSection; i++) {
             [_sectionExpandedNumberWithBoolArray insertObject:[NSNumber numberWithBool:YES] atIndex:i];
         }
      }
