@@ -85,6 +85,9 @@
     
     // タップイベントが感知できるよう設定変更
     headerView.userInteractionEnabled = YES;
+    for (UIView *v in [headerView subviews]) {
+        v.userInteractionEnabled = YES;
+    }
 
     // タップイベントが感知できるようtabに番号を設定
     NSInteger tag = headerBasedNo + section;
@@ -187,6 +190,13 @@
     // タッチされたViewを取得
     UITouch *touchedObj = [touches anyObject];
     UIView *touchedView = touchedObj.view;
+    
+    // タップされた領域がセクションの上に貼り付けられたViewである場合
+    // 親のセクションビューを検索する
+    // タップされた領域がCellの場合はタグを検索中断する
+    while (headerBasedNo > touchedView.tag && [touchedView isKindOfClass:[UITableView class]] == NO ) {
+        touchedView = [touchedView superview];
+    }
     
     // ヘッダーのタップ判定
     if (touchedView.tag >= headerBasedNo) {
