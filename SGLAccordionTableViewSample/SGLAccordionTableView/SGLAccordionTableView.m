@@ -21,6 +21,7 @@
         self.dataSource = self;
         _sectionExpandedNumberWithBoolArray = [NSMutableArray array];
         _expandScrollAnimation = NO;
+        _scrollSectionHeaderHeight = 0;
     }
     return self;
 }
@@ -268,6 +269,16 @@
     if (_expandScrollAnimation) {
         // 拡張時、該当セクションが隠れていた場合TableViewに表示されるようにスクロールする
         [self scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    }
+}
+
+// スクロール時、セクションヘッダーが残らないようにするための処理
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+    if (scrollView.contentOffset.y <= _scrollSectionHeaderHeight && scrollView.contentOffset.y>=0) {
+        scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
+    } else if (scrollView.contentOffset.y >= _scrollSectionHeaderHeight) {
+        scrollView.contentInset = UIEdgeInsetsMake(-_scrollSectionHeaderHeight, 0, 0, 0);
     }
 }
 

@@ -32,12 +32,14 @@
 @end
 
 
-
 @interface SGLAccordionTableView : UITableView<UITableViewDelegate,UITableViewDataSource>
 
 // アコーディオンの初期状態を格納する配列
 @property (nonatomic,retain) NSMutableArray *sectionExpandedNumberWithBoolArray;
+// 拡張時にTableViewの下にセルが隠れていた場合テーブルを上方向にスクロールしてセルを表示できるようにする (初期値 NO)
 @property BOOL expandScrollAnimation;
+// TableViewスクロール時にセクションが残らないようにするにはセクションヘッダーの最大値を設定 (初期値0でセクションヘッダーが残る)
+@property float scrollSectionHeaderHeight;
 
 // delegate
 @property (nonatomic,assign) id<SGLAccordionTableViewDelegate> tableDelegate;
