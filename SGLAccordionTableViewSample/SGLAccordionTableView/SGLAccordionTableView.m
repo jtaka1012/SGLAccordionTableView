@@ -20,6 +20,7 @@
         self.delegate = self;
         self.dataSource = self;
         _sectionExpandedNumberWithBoolArray = [NSMutableArray array];
+        _expandScrollAnimation = NO;
     }
     return self;
 }
@@ -263,7 +264,11 @@
     }
     
     [self insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
-    [self scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    
+    if (_expandScrollAnimation) {
+        // 拡張時、該当セクションが隠れていた場合TableViewに表示されるようにスクロールする
+        [self scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    }
 }
 
 @end

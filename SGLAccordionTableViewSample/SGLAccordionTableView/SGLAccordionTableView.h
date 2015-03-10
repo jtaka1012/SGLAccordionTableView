@@ -37,6 +37,7 @@
 
 // アコーディオンの初期状態を格納する配列
 @property (nonatomic,retain) NSMutableArray *sectionExpandedNumberWithBoolArray;
+@property BOOL expandScrollAnimation;
 
 // delegate
 @property (nonatomic,assign) id<SGLAccordionTableViewDelegate> tableDelegate;
