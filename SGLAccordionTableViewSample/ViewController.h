@@ -13,6 +13,7 @@
 
 
 @property (weak, nonatomic) IBOutlet SGLAccordionTableView *tbl_sample;
+- (IBAction)pushedResetButton:(id)sender;
 
 @end
 

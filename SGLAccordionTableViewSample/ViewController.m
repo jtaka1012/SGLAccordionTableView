@@ -17,18 +17,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    NSMutableArray *exArray = [NSMutableArray array];
-    
-    // 初期の開閉状態を保存
-    [exArray insertObject:[NSNumber numberWithBool:NO] atIndex:0];
-    [exArray insertObject:[NSNumber numberWithBool:NO] atIndex:1];
-    
-    // 開閉の初期状態を格納
-    _tbl_sample.sectionExpandedNumberWithBoolArray = exArray;
-    
     // delegate設定
     _tbl_sample.tableDelegate = self;
     _tbl_sample.tableDataSource = self;
+    
+    // ** tableDataSource設定後に実施 **/
+    // 開閉の初期状態を格納
+    NSMutableArray *esArray = [NSMutableArray array];
+    
+    [esArray insertObject:[NSNumber numberWithBool:YES] atIndex:0];
+    [esArray insertObject:[NSNumber numberWithBool:NO] atIndex:1];
+    [esArray insertObject:[NSNumber numberWithBool:YES] atIndex:2];
+    [esArray insertObject:[NSNumber numberWithBool:NO] atIndex:3];
+    [esArray insertObject:[NSNumber numberWithBool:YES] atIndex:4];
+    [_tbl_sample setExpandStatus:esArray];
+
+    // セクションヘッダーがスクロールするようにセクションヘッダーの最大値を設定
+    _tbl_sample.scrollSectionHeaderHeight = 100;
     
 }
 
@@ -40,21 +45,26 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 2;
+    return 5;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return 10;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 50;
+    
+    if (section == 1 || section == 4) {
+        return 50;
+    }
+    
+    return 100;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
 
-    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, _tbl_sample.frame.size.width, 50)];
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, _tbl_sample.frame.size.width, 100)];
     label.backgroundColor = [UIColor lightGrayColor];
 
     label.text = [NSString stringWithFormat:@"Section%ld", section];
@@ -81,4 +91,14 @@
     NSLog(@"SectionHeader%ld Tapped!",section);
 }
 
+- (IBAction)pushedResetButton:(id)sender {
+    
+    // セクションの開閉状態を取得
+    NSMutableArray *array = _tbl_sample.expandStatusArray;
+    
+    for (NSNumber *n in array) {
+        NSLog(@"値は%d",[n boolValue]);
+    }
+    
+}
 @end
