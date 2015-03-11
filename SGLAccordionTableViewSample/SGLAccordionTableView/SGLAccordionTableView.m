@@ -10,6 +10,7 @@
 
 @implementation SGLAccordionTableView{
     NSMutableArray *sectionHeaderArray;
+    NSMutableArray *expandStatus;
 }
 
 #define headerBasedNo 50000
@@ -19,7 +20,7 @@
     if (self = [super initWithCoder:aDecoder]) {
         self.delegate = self;
         self.dataSource = self;
-        _sectionExpandedNumberWithBoolArray = [NSMutableArray array];
+        expandStatus = [NSMutableArray array];
         _expandScrollAnimation = NO;
         _scrollSectionHeaderHeight = 0;
     }
@@ -112,37 +113,19 @@
 
 // テーブルの行の数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    // sectionExpandedNumberWithBoolArrayの設定内容確認
-    if (_sectionExpandedNumberWithBoolArray == nil) {
-        _sectionExpandedNumberWithBoolArray = [NSMutableArray array];
-    }
-    
-     // 開閉状態の初期設定
-    NSInteger maxSection = [self numberOfSectionsInTableView:self];
-    if (maxSection > _sectionExpandedNumberWithBoolArray.count) {
-        NSInteger insertCount = _sectionExpandedNumberWithBoolArray.count - 1;
-        for(NSInteger i = insertCount; i <= maxSection; i++) {
-            [_sectionExpandedNumberWithBoolArray insertObject:[NSNumber numberWithBool:YES] atIndex:i];
-        }
-     }
+{    
+    // 開閉状態の内容確認
+    [self setExpandStatus:expandStatus];
     
     // Number型で保存されたboolを変換
-    NSNumber *obj = _sectionExpandedNumberWithBoolArray[section];
+    NSNumber *obj = expandStatus[section];
     
-    // NSNumber型でない場合開帳状態として登録
-    if (![obj isKindOfClass:[NSNumber class]]) {
-        [_sectionExpandedNumberWithBoolArray replaceObjectAtIndex:section withObject:[NSNumber numberWithBool:YES]];
-    }
-    
-    if (obj != nil) {
-        BOOL isExpanded = [obj boolValue];
-        
-        if (isExpanded) {
-            if ([_tableDataSource respondsToSelector:@selector(tableView: numberOfRowsInSection:)]) {
-                // dataSource先で行数を取得
-                return [_tableDataSource tableView:tableView numberOfRowsInSection:section];
-            }
+    // 開閉状態の取得
+    BOOL isExpanded = [obj boolValue];
+    if (isExpanded) {
+        if ([_tableDataSource respondsToSelector:@selector(tableView: numberOfRowsInSection:)]) {
+            // dataSource先で行数を取得
+            return [_tableDataSource tableView:tableView numberOfRowsInSection:section];
         }
     }
     
@@ -207,13 +190,13 @@
         
         // セクションの拡張状態の更新
         // 現在の拡張状態
-        NSNumber *obj = _sectionExpandedNumberWithBoolArray[section];
+        NSNumber *obj = expandStatus[section];
         BOOL currentStatus = [obj boolValue];
         
         // 状態を反転させて再設定
         BOOL isExpanded = !currentStatus;
         NSNumber *changedStatus = [NSNumber numberWithBool:!currentStatus];
-        [_sectionExpandedNumberWithBoolArray replaceObjectAtIndex:section withObject:changedStatus];
+        [expandStatus replaceObjectAtIndex:section withObject:changedStatus];
         
         // 開帳時の行数を取得
         NSInteger count = 0;
@@ -280,6 +263,45 @@
     } else if (scrollView.contentOffset.y >= _scrollSectionHeaderHeight) {
         scrollView.contentInset = UIEdgeInsetsMake(-_scrollSectionHeaderHeight, 0, 0, 0);
     }
+}
+
+// セクションの開閉状態を設定
+- (void)setExpandStatus:(NSMutableArray *)expandStatusArray{
+    
+    // expandStatusArrayの設定内容確認
+    if (expandStatusArray == nil) {
+        expandStatusArray = [NSMutableArray array];
+    }
+    
+    // すでに状態が格納されている場合は処理を中断する
+    if (expandStatus.count > 0) {
+        return;
+    }
+    
+    // セクションの最大値を取得
+    NSInteger maxSection = [self numberOfSectionsInTableView:self];
+
+    // 開閉状態の初期設定
+    if (maxSection > expandStatusArray.count) {
+        for(NSInteger i = expandStatusArray.count; i < maxSection; i++) {
+            [expandStatusArray insertObject:[NSNumber numberWithBool:YES] atIndex:i];
+        }
+    }
+    
+    // Arrayの中身がNSNumber型かどうかを確認
+    for (int i = 0; i < maxSection; i++) {
+        // Number型で保存されたboolを変換
+        NSNumber *obj = expandStatusArray[i];
+        
+        // NSNumber型でない場合開帳状態として登録
+        if (![obj isKindOfClass:[NSNumber class]]) {
+            [expandStatusArray replaceObjectAtIndex:i withObject:[NSNumber numberWithBool:YES]];
+        }
+    }
+    
+    // インスタンス変数として格納
+    expandStatus = expandStatusArray;
+    _expandStatusArray = expandStatus;
 }
 
 @end

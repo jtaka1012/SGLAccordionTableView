@@ -15,7 +15,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section;
 - (CGFloat)tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
--(void)tableViewSection:(NSInteger)section expanded:(BOOL)expanded headerView:(UIView *)view;
+- (void)tableViewSection:(NSInteger)section expanded:(BOOL)expanded headerView:(UIView *)view;
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section;
 
 @end
@@ -34,8 +34,14 @@
 
 @interface SGLAccordionTableView : UITableView<UITableViewDelegate,UITableViewDataSource>
 
+
+// 初期の開閉状態を格納
+// tableDataSourceの設定後に実施。テーブル生成前のみ有効
+- (void)setExpandStatus:(NSMutableArray *)expandStatusArray;
+
+
 // アコーディオンの初期状態を格納する配列
-@property (nonatomic,retain) NSMutableArray *sectionExpandedNumberWithBoolArray;
+@property (nonatomic,retain,readonly) NSMutableArray *expandStatusArray;
 // 拡張時にTableViewの下にセルが隠れていた場合テーブルを上方向にスクロールしてセルを表示できるようにする (初期値 NO)
 @property BOOL expandScrollAnimation;
 // TableViewスクロール時にセクションが残らないようにするにはセクションヘッダーの最大値を設定 (初期値0でセクションヘッダーが残る)
