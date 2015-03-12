@@ -30,12 +30,19 @@
 // テーブルのセクションの数
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    NSInteger sectionCount;
+    
     if ([_tableDataSource respondsToSelector:@selector(numberOfSectionsInTableView:)]) {
         // delegate先でセクション数を取得
-        return [_tableDataSource numberOfSectionsInTableView:tableView];
+        sectionCount =  [_tableDataSource numberOfSectionsInTableView:tableView];
+    }else{
+        sectionCount = 0;
     }
     
-    return 0;
+    // セクションの開閉状態を初期化
+    [self initExpandStatusArray:sectionCount];
+    
+    return sectionCount;
 }
 
 //セクションヘッダーの高さ指定
@@ -278,29 +285,32 @@
         return;
     }
     
-    // セクションの最大値を取得
-    NSInteger maxSection = [self numberOfSectionsInTableView:self];
+    // インスタンス変数へ格納
+    expandStatus = expandStatusArray;
+}
 
-    // 開閉状態の初期設定
-    if (maxSection > expandStatusArray.count) {
-        for(NSInteger i = expandStatusArray.count; i < maxSection; i++) {
-            [expandStatusArray insertObject:[NSNumber numberWithBool:YES] atIndex:i];
+// セクションの開閉状態を初期化
+- (void)initExpandStatusArray:(NSInteger)sectionCount{
+    
+    // セクションの開閉状態が設定されていない場合、強制的に開帳状態として登録
+    if (sectionCount > expandStatus.count) {
+        for(NSInteger i = expandStatus.count; i < sectionCount; i++) {
+            [expandStatus insertObject:[NSNumber numberWithBool:YES] atIndex:i];
         }
     }
     
     // Arrayの中身がNSNumber型かどうかを確認
-    for (int i = 0; i < maxSection; i++) {
+    for (int i = 0; i < sectionCount; i++) {
         // Number型で保存されたboolを変換
-        NSNumber *obj = expandStatusArray[i];
+        NSNumber *obj = expandStatus[i];
         
         // NSNumber型でない場合開帳状態として登録
         if (![obj isKindOfClass:[NSNumber class]]) {
-            [expandStatusArray replaceObjectAtIndex:i withObject:[NSNumber numberWithBool:YES]];
+            [expandStatus replaceObjectAtIndex:i withObject:[NSNumber numberWithBool:YES]];
         }
     }
     
-    // インスタンス変数として格納
-    expandStatus = expandStatusArray;
+    // プロパティへ格納
     _expandStatusArray = expandStatus;
 }
 
