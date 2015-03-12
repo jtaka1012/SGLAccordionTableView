@@ -11,6 +11,7 @@
 @implementation SGLAccordionTableView{
     NSMutableArray *sectionHeaderArray;
     NSMutableArray *expandStatus;
+    NSDate *touchBeganDate;
 }
 
 #define headerBasedNo 50000
@@ -174,61 +175,77 @@
     
 }
 
+// タッチが開始された時の処理
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     // 親のメソッド実行
     [super touchesBegan:touches withEvent:event];
     
-    // タッチされたViewを取得
-    UITouch *touchedObj = [touches anyObject];
-    UIView *touchedView = touchedObj.view;
+    // タッチされた日付を格納
+    touchBeganDate = [NSDate date];
+
+}
+
+// タッチが終了した時の処理
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
     
-    // タップされた領域がセクションの上に貼り付けられたViewである場合
-    // 親のセクションビューを検索する
-    // タップされた領域がCellの場合はタグを検索中断する
-    while (headerBasedNo > touchedView.tag && [touchedView isKindOfClass:[UITableView class]] == NO ) {
-        touchedView = [touchedView superview];
+    // タップが終了した時刻を取得
+    NSDate *touchesEndedDate = [NSDate date];
+    //差分をfloatで取得
+    float diffSec= [touchesEndedDate timeIntervalSinceDate:touchBeganDate];
+
+    //一定時間のタップであればアコーディオンの開閉を実施
+    if(diffSec > 0.00002 ){
+        // タッチされたViewを取得
+        UITouch *touchedObj = [touches anyObject];
+        UIView *touchedView = touchedObj.view;
+        
+        // タップされた領域がセクションの上に貼り付けられたViewである場合
+        // 親のセクションビューを検索する
+        // タップされた領域がCellの場合はタグを検索中断する
+        while (headerBasedNo > touchedView.tag && [touchedView isKindOfClass:[UITableView class]] == NO ) {
+            touchedView = [touchedView superview];
+        }
+        
+        // ヘッダーのタップ判定
+        if (touchedView.tag >= headerBasedNo) {
+            // セクション番号を取得
+            NSInteger section = touchedView.tag%headerBasedNo;
+            
+            // セクションの拡張状態の更新
+            // 現在の拡張状態
+            NSNumber *obj = expandStatus[section];
+            BOOL currentStatus = [obj boolValue];
+            
+            // 状態を反転させて再設定
+            BOOL isExpanded = !currentStatus;
+            NSNumber *changedStatus = [NSNumber numberWithBool:!currentStatus];
+            [expandStatus replaceObjectAtIndex:section withObject:changedStatus];
+            
+            // 開帳時の行数を取得
+            NSInteger count = 0;
+            if ([_tableDataSource respondsToSelector:@selector(tableView: numberOfRowsInSection:)]) {
+                // delegate先で行数を取得
+                count =  [_tableDataSource tableView:self numberOfRowsInSection:section];
+            }
+            
+            // アコーディオンの開閉を実施
+            if(isExpanded){
+                [self expandSection:section rowCount:count];
+            }else{
+                [self collapseSection:section rowCount:count];
+            }
+            
+            // アコーディオンが開閉された事をdelegate先へ通知
+            // 開閉が行われたセクションのヘッダーを取得
+            UIView *headerView = sectionHeaderArray[section];
+            
+            if ([_tableDelegate respondsToSelector:@selector(tableViewSection: expanded: headerView:)]) {
+                // delegate先ヘッダーの編集処理を実施
+                [_tableDelegate tableViewSection:section expanded:isExpanded headerView:headerView];
+            }
+        }
     }
-    
-    // ヘッダーのタップ判定
-    if (touchedView.tag >= headerBasedNo) {
-        // セクション番号を取得
-        NSInteger section = touchedView.tag%headerBasedNo;
-        
-        // セクションの拡張状態の更新
-        // 現在の拡張状態
-        NSNumber *obj = expandStatus[section];
-        BOOL currentStatus = [obj boolValue];
-        
-        // 状態を反転させて再設定
-        BOOL isExpanded = !currentStatus;
-        NSNumber *changedStatus = [NSNumber numberWithBool:!currentStatus];
-        [expandStatus replaceObjectAtIndex:section withObject:changedStatus];
-        
-        // 開帳時の行数を取得
-        NSInteger count = 0;
-        if ([_tableDataSource respondsToSelector:@selector(tableView: numberOfRowsInSection:)]) {
-            // delegate先で行数を取得
-            count =  [_tableDataSource tableView:self numberOfRowsInSection:section];
-        }
-        
-        // アコーディオンの開閉を実施
-        if(isExpanded){
-            [self expandSection:section rowCount:count];
-        }else{
-            [self collapseSection:section rowCount:count];
-        }
-        
-        // アコーディオンが開閉された事をdelegate先へ通知
-        // 開閉が行われたセクションのヘッダーを取得
-        UIView *headerView = sectionHeaderArray[section];
-        
-        if ([_tableDelegate respondsToSelector:@selector(tableViewSection: expanded: headerView:)]) {
-            // delegate先ヘッダーの編集処理を実施
-            [_tableDelegate tableViewSection:section expanded:isExpanded headerView:headerView];
-        }
-    }
-    
 }
 
 // セクション開閉時のヘッダー編集処理
