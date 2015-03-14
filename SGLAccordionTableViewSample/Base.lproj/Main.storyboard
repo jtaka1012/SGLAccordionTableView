@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="blg-2t-nDg" customClass="SGLAccordionTableView">
-                                <rect key="frame" x="0.0" y="75" width="414" height="585"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="blg-2t-nDg" customClass="SGLAccordionTableView">
+                                <rect key="frame" x="0.0" y="20" width="414" height="585"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="myCell" id="GvW-Sl-IN9">
@@ -28,19 +29,29 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ScE-EG-nEY">
-                                <rect key="frame" x="157" y="28" width="101" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZvW-Px-APz">
+                                <rect key="frame" x="0.0" y="626" width="414" height="62"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <state key="normal" title="Expand Status">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="pushedResetButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OvX-FD-t1U"/>
+                                    <action selector="pushedResetButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JCw-Mm-Hi7"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZvW-Px-APz" firstAttribute="top" secondItem="blg-2t-nDg" secondAttribute="bottom" constant="21" id="7Qt-Pd-pzQ"/>
+                            <constraint firstItem="blg-2t-nDg" firstAttribute="leading" secondItem="ZvW-Px-APz" secondAttribute="leading" id="Ca7-FK-iYV"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZvW-Px-APz" secondAttribute="bottom" constant="48" id="sMX-vu-sFb"/>
+                            <constraint firstItem="ZvW-Px-APz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="u3W-Gk-cRH"/>
+                            <constraint firstItem="blg-2t-nDg" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="xUu-Db-4Hd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ZvW-Px-APz" secondAttribute="trailing" constant="-16" id="xe2-q9-DoM"/>
+                            <constraint firstItem="blg-2t-nDg" firstAttribute="trailing" secondItem="ZvW-Px-APz" secondAttribute="trailing" id="yCg-Sv-B5z"/>
+                        </constraints>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="tbl_sample" destination="blg-2t-nDg" id="uGh-9r-i2q"/>
@@ -48,7 +59,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="397" y="481"/>
+            <point key="canvasLocation" x="399" y="458"/>
         </scene>
     </scenes>
 </document>

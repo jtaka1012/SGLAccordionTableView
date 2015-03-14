@@ -17,10 +17,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    // delegate設定
-    _tbl_sample.tableDelegate = self;
-    _tbl_sample.tableDataSource = self;
-    
     // ** tableDataSource設定後に実施 **/
     // 開閉の初期状態を格納
     NSMutableArray *esArray = [NSMutableArray array];
@@ -34,6 +30,10 @@
 
     // セクションヘッダーがスクロールするようにセクションヘッダーの最大値を設定
     _tbl_sample.scrollSectionHeaderHeight = 100;
+    
+    // delegate設定
+    _tbl_sample.tableDelegate = self;
+    _tbl_sample.tableDataSource = self;
     
 }
 
@@ -50,16 +50,17 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return 6;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    return 40;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     
-    if (section == 1 || section == 4) {
-        return 50;
-    }
-    
-    return 100;
+    return 50;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
