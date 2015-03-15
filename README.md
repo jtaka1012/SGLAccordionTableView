@@ -19,7 +19,7 @@ You can't use UITableView's edit method.(ex. setEditing ,commitEditingStyle meth
 
 ## Licence
 
-[MIT](https://github.com/tcnksm/tool/blob/master/LICENCE)
+[MIT](http://opensource.org/licenses/mit-license.php)
 
 ## Author
 
