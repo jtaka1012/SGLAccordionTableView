@@ -186,6 +186,13 @@
     // タップされた領域がCellの場合はタグを検索中断する
     while (headerBasedNo > touchedView.tag && [touchedView isKindOfClass:[UITableView class]] == NO ) {
         touchedView = [touchedView superview];
+        
+        if([touchedView isKindOfClass:[UITableViewCell class]]){
+            NSIndexPath *indexPath = [self indexPathForCell:(UITableViewCell *)touchedView];
+            [self tableView:self didSelectRowAtIndexPath:indexPath];
+            
+            return;
+        }
     }
     
     // ヘッダーのタップ判定
